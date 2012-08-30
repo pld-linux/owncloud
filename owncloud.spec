@@ -7,6 +7,8 @@ Group:		Applications/WWW
 Source0:	http://owncloud.org/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	7fdbe0113621730a6787afdc7ebb529f
 Source1:	config.php
+Source2:	apache.conf
+Source3:	lighttpd.conf
 Patch0:		system-pear.patch
 URL:		http://owncloud.org
 BuildRequires:	rpmbuild(macros) >= 1.268
@@ -60,39 +62,6 @@ ownCloud server on their devices.
 %setup -q -n %{name}
 %patch0 -p1
 
-cat > apache.conf <<'EOF'
-Alias /%{name} %{_appdir}
-<Directory %{_appdir}>
-	ErrorDocument 403 /%{name}/core/templates/403.php
-	ErrorDocument 404 /%{name}/core/templates/404.php
-	<IfModule mod_php5.c>
-		php_value upload_max_filesize 512M
-		php_value post_max_size 512M
-		php_value memory_limit 512M
-	</IfModule>
-	<IfModule mod_rewrite.c>
-		RewriteEngine on
-		RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-		RewriteRule ^.well-known/host-meta /%{name}/public.php?service=host-meta [QSA,L]
-		RewriteRule ^.well-known/carddav /%{name}/remote.php/carddav/ [R]
-		RewriteRule ^.well-known/caldav /%{name}/remote.php/caldav/ [R]
-		RewriteRule ^apps/([^/]*)/(.*\.(css|php))$ index.php?app=$1&getfile=$2 [QSA,L]
-		RewriteRule ^remote/(.*) remote.php [QSA,L]
-	</IfModule>
-	Options -Indexes
-	Allow from all
-</Directory>
-EOF
-
-cat > lighttpd.conf <<'EOF'
-alias.url += (
-    "/%{name}" => "%{_appdir}",
-)
-$HTTP["url"] =~ "^/%{name}($|/)" {
-     dir-listing.activate = "disable"
-}
-EOF
-
 # remove bundled 3rdparty libs
 %{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,Archive,Console,Crypt_Blowfish,MDB2,MDB2.php,XML}
 # PEAR-core
@@ -106,9 +75,9 @@ cp -pdR *.php db_structure.xml 3rdparty apps core files l10n lib ocs search sett
 ln -s %{_sysconfdir}/config $RPM_BUILD_ROOT%{_appdir}/config
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/config/config.php
 
-cp -p apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
-cp -p apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
-cp -p lighttpd.conf $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
 
 install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}
 
