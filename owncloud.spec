@@ -1,7 +1,7 @@
 Summary:	Private file sync and share server
 Name:		owncloud
 Version:	4.0.7
-Release:	0.1
+Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://owncloud.org/releases/%{name}-%{version}.tar.bz2
