@@ -1,18 +1,32 @@
+#TODO:
+# - make package for libs from 3rdparty dir:
+#  - aws-sdk http://aws.amazon.com/sdkforphp
+#  - dropbox-php http://www.dropbox-php.com/
+#  - jquery-minicolors https://github.com/claviska/jquery-miniColors/
+#  - phpMyID http://siege.org/projects/phpMyID
+#  - php-pear-OS_Guess
+#  - phpass http://www.openwall.com/phpass/
+#  - php-cloudfiles https://github.com/rackspace/php-cloudfiles
+#  - simpletest http://simpletest.org/en/download.html
+#  - smb4php http://www.phpclasses.org/smb4php
+#  - jquery-timepicker http://fgelinas.com/code/timepicker
+#  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	4.0.7
+Version:	4.5.0
 Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://owncloud.org/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	7fdbe0113621730a6787afdc7ebb529f
+# Source0-md5:	115dc4ca9615816b3247792409f45ec8
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
 Patch0:		system-pear.patch
 URL:		http://owncloud.org
 BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:	php(core)
+Requires:	getid3
+Requires:	php(core) >= 5.3
 Requires:	php(gd)
 Requires:	php(mbstring)
 Requires:	php(pdo)
@@ -21,6 +35,7 @@ Requires:	php(posix)
 Requires:	php(sqlite3)
 Requires:	php(xml)
 Requires:	php(zip)
+Requires:	php(zlib)
 #Requires:	php-When
 Requires:	php-pear-Archive_Tar
 Requires:	php-pear-Console_Getopt
@@ -63,7 +78,7 @@ ownCloud server on their devices.
 %patch0 -p1
 
 # remove bundled 3rdparty libs
-%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,Archive,Console,Crypt_Blowfish,MDB2,MDB2.php,XML}
+%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,Crypt_Blowfish,MDB2,MDB2.php,XML}
 # PEAR-core
 %{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
 

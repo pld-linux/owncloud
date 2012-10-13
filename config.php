@@ -13,6 +13,6 @@ $CONFIG = array(
 "forcessl" => false,
 "enablebackup" => false,
 "datadirectory" => "/var/lib/owncloud",
-"writable_appsdir" => false,
+"appstoreenabled" => false,
 );
 ?>
