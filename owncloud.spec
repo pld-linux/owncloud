@@ -30,10 +30,7 @@ Requires:	getid3
 Requires:	php(core) >= 5.3
 Requires:	php(gd)
 Requires:	php(mbstring)
-Requires:	php(pdo)
-Requires:	php(pdo-sqlite)
 Requires:	php(posix)
-Requires:	php(sqlite3)
 Requires:	php(xml)
 Requires:	php(zip)
 Requires:	php(zlib)
@@ -53,10 +50,11 @@ Requires:	webserver(access)
 Requires:	webserver(alias)
 Requires:	webserver(php)
 Requires:	webserver(rewrite)
-# uses one of of the MDB2 drivers, plus bundled sqlite3 MDB2 Driver
+# uses one of of the MDB2 drivers
 Suggests:	php-pear-MDB2_Driver_mysql
 Suggests:	php-pear-MDB2_Driver_pgsql
 Suggests:	php-pear-MDB2_Driver_sqlite
+Suggests:	php-pear-MDB2_Driver_sqlite3
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -78,6 +76,7 @@ ownCloud server on their devices.
 
 # remove bundled 3rdparty libs
 %{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,Crypt_Blowfish,MDB2,MDB2.php,XML}
+%{__rm} -r lib/MDB2
 # PEAR-core
 %{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
 
