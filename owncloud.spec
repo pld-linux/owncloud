@@ -42,9 +42,6 @@ Requires:	php-pear-Archive_Tar
 Requires:	php-pear-Console_Getopt
 Requires:	php-pear-Crypt_Blowfish
 Requires:	php-pear-MDB2
-Requires:	php-pear-MDB2_Driver_mysql
-Requires:	php-pear-MDB2_Driver_pgsql
-Requires:	php-pear-MDB2_Driver_sqlite
 Requires:	php-pear-MDB2_Schema
 Requires:	php-pear-PEAR-core
 Requires:	php-pear-XML_Parser
@@ -56,10 +53,10 @@ Requires:	webserver(access)
 Requires:	webserver(alias)
 Requires:	webserver(php)
 Requires:	webserver(rewrite)
-Suggests:	php(mysql)
-Suggests:	php(pdo-mysql)
-Suggests:	php(pdo-pgsql)
-Suggests:	php(pgsql)
+# uses one of of the MDB2 drivers, plus bundled sqlite3 MDB2 Driver
+Suggests:	php-pear-MDB2_Driver_mysql
+Suggests:	php-pear-MDB2_Driver_pgsql
+Suggests:	php-pear-MDB2_Driver_sqlite
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
