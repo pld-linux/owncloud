@@ -24,6 +24,7 @@ Source2:	apache.conf
 Source3:	lighttpd.conf
 Patch0:		system-pear.patch
 Patch1:		system-config.patch
+Patch2:		pear-not-strict.patch
 URL:		http://owncloud.org
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	getid3
@@ -73,6 +74,7 @@ ownCloud server on their devices.
 %setup -q -n %{name}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 # remove bundled 3rdparty libs
 %{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,Crypt_Blowfish,MDB2,MDB2.php,XML}
