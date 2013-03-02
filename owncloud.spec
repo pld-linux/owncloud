@@ -30,6 +30,7 @@ BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	getid3
 Requires:	php(core) >= 5.3
 Requires:	php(ctype)
+Requires:	php(dom)
 Requires:	php(gd)
 Requires:	php(iconv)
 Requires:	php(json)
