@@ -29,9 +29,15 @@ URL:		http://owncloud.org
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	getid3
 Requires:	php(core) >= 5.3
+Requires:	php(ctype)
 Requires:	php(gd)
+Requires:	php(iconv)
+Requires:	php(json)
 Requires:	php(mbstring)
+Requires:	php(pdo)
 Requires:	php(posix)
+Requires:	php(session)
+Requires:	php(spl)
 Requires:	php(xml)
 Requires:	php(zip)
 Requires:	php(zlib)
