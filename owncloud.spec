@@ -13,12 +13,12 @@
 #  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	4.5.7
+Version:	4.5.8
 Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
-Source0:	http://owncloud.org/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	12b41fd8119c0fe48b62fcfe36999def
+Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
+# Source0-md5:	233d56fbcdfd8bc7f249c42c5f841a74
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
@@ -31,6 +31,7 @@ Requires:	getid3
 Requires:	php(core) >= 5.3
 Requires:	php(ctype)
 Requires:	php(dom)
+Requires:	php(filter)
 Requires:	php(gd)
 Requires:	php(iconv)
 Requires:	php(json)
