@@ -22,7 +22,6 @@ Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
-Patch0:		system-pear.patch
 Patch1:		system-config.patch
 Patch2:		pear-not-strict.patch
 URL:		http://owncloud.org
@@ -46,7 +45,6 @@ Requires:	php(zlib)
 #Requires:	php-When
 Requires:	php-pear-Archive_Tar
 Requires:	php-pear-Console_Getopt
-Requires:	php-pear-Crypt_Blowfish
 Requires:	php-pear-MDB2
 Requires:	php-pear-MDB2_Schema
 Requires:	php-pear-PEAR-core
@@ -80,7 +78,6 @@ ownCloud server on their devices.
 
 %prep
 %setup -q -n %{name}
-#patch0 -p1
 #patch1 -p1
 %patch2 -p1
 
