@@ -13,12 +13,12 @@
 #  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	5.0.6
-Release:	0.2
+Version:	5.0.7
+Release:	0.1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
-# Source0-md5:	21c5faf22569ae1be805b7857720aa6b
+# Source0-md5:	1339f25954e317d4ff1d7e26cc7167f1
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
@@ -84,7 +84,7 @@ ownCloud server on their devices.
 %patch2 -p1
 
 # remove bundled 3rdparty libs
-%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,Crypt_Blowfish,MDB2,MDB2.php,XML}
+%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,MDB2,MDB2.php,XML}
 %{__rm} -r lib/MDB2
 # PEAR-core
 %{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
