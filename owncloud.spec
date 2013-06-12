@@ -22,7 +22,6 @@ Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
-Source4:	httpd.conf
 Patch1:		system-config.patch
 Patch2:		pear-not-strict.patch
 URL:		http://owncloud.org
@@ -63,7 +62,6 @@ Suggests:	php-pear-MDB2_Driver_mysql
 Suggests:	php-pear-MDB2_Driver_pgsql
 Suggests:	php-pear-MDB2_Driver_sqlite
 Suggests:	php-pear-MDB2_Driver_sqlite3
-Conflicts:	apache-base < 2.4.0-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -98,7 +96,7 @@ ln -s %{_sysconfdir}/config $RPM_BUILD_ROOT%{_appdir}/config
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/config/config.php
 
 cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
-cp -p %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
 
 install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}
@@ -112,10 +110,10 @@ rm -rf $RPM_BUILD_ROOT
 %triggerun -- apache1 < 1.3.37-3, apache1-base
 %webapp_unregister apache %{_webapp}
 
-%triggerin -- apache-base
+%triggerin -- apache < 2.2.0, apache-base
 %webapp_register httpd %{_webapp}
 
-%triggerun -- apache-base
+%triggerun -- apache < 2.2.0, apache-base
 %webapp_unregister httpd %{_webapp}
 
 %triggerin -- lighttpd
