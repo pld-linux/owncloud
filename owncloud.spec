@@ -13,17 +13,15 @@
 #  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	4.5.8
-Release:	2
+Version:	5.0.9
+Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
-# Source0-md5:	233d56fbcdfd8bc7f249c42c5f841a74
+# Source0-md5:	1ad9d51e2b355bc5243c84db97786b01
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
-Source4:	httpd.conf
-Patch0:		system-pear.patch
 Patch1:		system-config.patch
 Patch2:		pear-not-strict.patch
 URL:		http://owncloud.org
@@ -47,7 +45,6 @@ Requires:	php(zlib)
 #Requires:	php-When
 Requires:	php-pear-Archive_Tar
 Requires:	php-pear-Console_Getopt
-Requires:	php-pear-Crypt_Blowfish
 Requires:	php-pear-MDB2
 Requires:	php-pear-MDB2_Schema
 Requires:	php-pear-PEAR-core
@@ -82,12 +79,11 @@ ownCloud server on their devices.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
-%patch1 -p1
+#patch1 -p1
 %patch2 -p1
 
 # remove bundled 3rdparty libs
-%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,Crypt_Blowfish,MDB2,MDB2.php,XML}
+%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,MDB2,MDB2.php,XML}
 %{__rm} -r lib/MDB2
 # PEAR-core
 %{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
