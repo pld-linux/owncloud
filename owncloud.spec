@@ -95,7 +95,6 @@ ln -s %{_sysconfdir}/config $RPM_BUILD_ROOT%{_appdir}/config
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/config/config.php
 
 cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
-cp -p %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/lighttpd.conf
 
 install -d $RPM_BUILD_ROOT%{_localstatedir}/lib/%{name}
@@ -126,7 +125,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS COPYING-AGPL COPYING-README README
 %dir %attr(750,root,http) %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
-%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/lighttpd.conf
 %dir %attr(750,http,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/config
 %attr(640,http,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/config/*.php
