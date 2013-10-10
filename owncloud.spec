@@ -13,12 +13,12 @@
 #  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	5.0.11
+Version:	5.0.12
 Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
-# Source0-md5:	ae31d78bf9b29835330922fefa96e076
+# Source0-md5:	32472783cc6de04e74703b48b758a22f
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
@@ -123,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING-AGPL COPYING-README README
+%doc AUTHORS COPYING-AGPL README
 %dir %attr(750,root,http) %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
