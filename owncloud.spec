@@ -13,12 +13,12 @@
 #  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	5.0.12
-Release:	1
+Version:	6.0.0
+Release:	0.beta1.1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
-Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
-# Source0-md5:	32472783cc6de04e74703b48b758a22f
+Source0:	http://download.owncloud.org/community/testing/%{name}-%{version}beta1.zip
+# Source0-md5:	04e5a6f7779f3de0eef9ad89dbde94cf
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
@@ -82,7 +82,7 @@ ownCloud server on their devices.
 
 # remove bundled 3rdparty libs
 %{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,MDB2,MDB2.php,XML}
-%{__rm} -r lib/MDB2
+#%{__rm} -r lib/MDB2
 # PEAR-core
 %{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
 
@@ -123,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING-AGPL README
+%doc AUTHORS COPYING-AGPL 
 %dir %attr(750,root,http) %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
