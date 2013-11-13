@@ -11,14 +11,15 @@
 #  - smb4php http://www.phpclasses.org/smb4php
 #  - jquery-timepicker http://fgelinas.com/code/timepicker
 #  - sabredav - https://code.google.com/p/sabredav/
+%define		beta	beta3
 Summary:	Private file sync and share server
 Name:		owncloud
 Version:	6.0.0
-Release:	0.beta1.1
+Release:	0.%{beta}.1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
-Source0:	http://download.owncloud.org/community/testing/%{name}-%{version}beta1.zip
-# Source0-md5:	04e5a6f7779f3de0eef9ad89dbde94cf
+Source0:	http://download.owncloud.org/community/testing/%{name}-%{version}%{beta}.tar.bz2
+# Source0-md5:	fa7afef220be73c0cbaf906fc360ad63
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
@@ -82,7 +83,6 @@ ownCloud server on their devices.
 
 # remove bundled 3rdparty libs
 %{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,MDB2,MDB2.php,XML}
-#%{__rm} -r lib/MDB2
 # PEAR-core
 %{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
 
@@ -90,7 +90,7 @@ ownCloud server on their devices.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir}/config,%{_appdir}}
 
-cp -pdR *.php db_structure.xml 3rdparty apps core files l10n lib ocs search settings themes $RPM_BUILD_ROOT%{_appdir}
+cp -pdR robots.txt index.html *.php db_structure.xml 3rdparty apps core l10n lib ocs search settings themes $RPM_BUILD_ROOT%{_appdir}
 ln -s %{_sysconfdir}/config $RPM_BUILD_ROOT%{_appdir}/config
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/config/config.php
 
