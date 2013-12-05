@@ -11,7 +11,7 @@
 #  - smb4php http://www.phpclasses.org/smb4php
 #  - jquery-timepicker http://fgelinas.com/code/timepicker
 #  - sabredav - https://code.google.com/p/sabredav/
-%define		beta	beta4
+%define		beta	rc2
 Summary:	Private file sync and share server
 Name:		owncloud
 Version:	6.0.0
@@ -19,7 +19,7 @@ Release:	0.%{beta}.1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://download.owncloud.org/community/testing/%{name}-%{version}%{beta}.tar.bz2
-# Source0-md5:	d1c193fa49c3a16c2da0cef5fedeca12
+# Source0-md5:	ec3e755cffcbf04a0b894e6dfcbaced5
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
@@ -82,7 +82,7 @@ ownCloud server on their devices.
 %patch1 -p1
 
 # remove bundled 3rdparty libs
-%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,MDB2,MDB2.php,XML}
+%{__rm} -r 3rdparty/{class.phpmailer.php,class.smtp.php,getid3,Archive,Console,MDB2.php,XML}
 # PEAR-core
 %{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
 
