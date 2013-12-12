@@ -11,15 +11,14 @@
 #  - smb4php http://www.phpclasses.org/smb4php
 #  - jquery-timepicker http://fgelinas.com/code/timepicker
 #  - sabredav - https://code.google.com/p/sabredav/
-%define		beta	rc2
 Summary:	Private file sync and share server
 Name:		owncloud
 Version:	6.0.0
-Release:	0.%{beta}.1
+Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
-Source0:	http://download.owncloud.org/community/testing/%{name}-%{version}%{beta}.tar.bz2
-# Source0-md5:	ec3e755cffcbf04a0b894e6dfcbaced5
+Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
+# Source0-md5:	7a6b9330de7dddad0776ef9b6b80af94
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
