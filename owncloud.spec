@@ -14,7 +14,7 @@
 Summary:	Private file sync and share server
 Name:		owncloud
 Version:	6.0.0a
-Release:	1
+Release:	2
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
@@ -61,7 +61,6 @@ Suggests:	php-pear-MDB2_Driver_mysql
 Suggests:	php-pear-MDB2_Driver_pgsql
 Suggests:	php-pear-MDB2_Driver_sqlite
 Suggests:	php-pear-MDB2_Driver_sqlite3
-Conflicts:	apache-base < 2.4.0-1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
