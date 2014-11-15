@@ -13,12 +13,12 @@
 #  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	7.0.1
+Version:	7.0.3
 Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
-# Source0-md5:	a922504271aa4dbca83b28aec1c11178
+# Source0-md5:	d5d2ad068046e6ddb322cf001a9bb3d5
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
