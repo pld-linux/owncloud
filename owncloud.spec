@@ -45,8 +45,6 @@ Requires:	php(zlib)
 #Requires:	php-When
 Requires:	php-pear-Archive_Tar
 Requires:	php-pear-Console_Getopt
-Requires:	php-pear-MDB2
-Requires:	php-pear-MDB2_Schema
 Requires:	php-pear-PEAR-core
 Requires:	php-pear-XML_Parser
 Requires:	php-phpmailer >= 5.2
@@ -57,11 +55,10 @@ Requires:	webserver(access)
 Requires:	webserver(alias)
 Requires:	webserver(php)
 Requires:	webserver(rewrite)
-# uses one of of the MDB2 drivers
-Suggests:	php-pear-MDB2_Driver_mysql
-Suggests:	php-pear-MDB2_Driver_pgsql
-Suggests:	php-pear-MDB2_Driver_sqlite
-Suggests:	php-pear-MDB2_Driver_sqlite3
+# uses one of of the PDO drivers
+Suggests:	php(pdo-mysql)
+Suggests:	php(pdo-pgsql)
+Suggests:	php(pdo-sqlite)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
