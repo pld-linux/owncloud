@@ -27,6 +27,7 @@ BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	getid3
 Requires:	php(core) >= 5.3.8
 Requires:	php(ctype)
+Requires:	php(curl)
 Requires:	php(dom)
 Requires:	php(filter)
 Requires:	php(gd)
@@ -38,6 +39,7 @@ Requires:	php(posix)
 Requires:	php(session)
 Requires:	php(spl)
 Requires:	php(xml)
+Requires:	php(xmlwriter)
 Requires:	php(zip)
 Requires:	php(zlib)
 #Requires:	php-When
