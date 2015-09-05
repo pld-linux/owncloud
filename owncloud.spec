@@ -47,8 +47,11 @@ Requires:	webserver(rewrite)
 Suggests:	php(fileinfo)
 # uses one of of the PDO drivers
 Suggests:	php(pdo-mysql)
+Suggests:	php(mysql)
 Suggests:	php(pdo-pgsql)
+Suggests:	php(pgsql)
 Suggests:	php(pdo-sqlite)
+Suggests:	php(sqlite)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
