@@ -55,6 +55,7 @@ Requires:	webserver(access)
 Requires:	webserver(alias)
 Requires:	webserver(php)
 Requires:	webserver(rewrite)
+Suggests:	php(fileinfo)
 # uses one of of the PDO drivers
 Suggests:	php(pdo-mysql)
 Suggests:	php(pdo-pgsql)
