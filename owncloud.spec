@@ -13,16 +13,15 @@
 #  - sabredav - https://code.google.com/p/sabredav/
 Summary:	Private file sync and share server
 Name:		owncloud
-Version:	7.0.4
+Version:	8.2.2
 Release:	1
 License:	AGPL v3, MIT
 Group:		Applications/WWW
 Source0:	http://download.owncloud.org/community/%{name}-%{version}.tar.bz2
-# Source0-md5:	6d4a3f9275d1f2b2607e7e6484051d4c
+# Source0-md5:	f5732baa2c0a5a44db3cf76775fe0c4f
 Source1:	config.php
 Source2:	apache.conf
 Source3:	lighttpd.conf
-Patch1:		pear-not-strict.patch
 URL:		http://owncloud.org
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	getid3
@@ -77,18 +76,12 @@ ownCloud server on their devices.
 
 %prep
 %setup -q -n %{name}
-%patch1 -p1
-
-# remove bundled 3rdparty libs
-%{__rm} -r 3rdparty/phpmailer
-# PEAR-core
-%{__rm} -r 3rdparty/{PEAR.php,PEAR5.php,System.php,PEAR}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir}/config,%{_appdir}}
 
-cp -pdR robots.txt index.html *.php db_structure.xml 3rdparty apps core l10n lib ocs search settings themes $RPM_BUILD_ROOT%{_appdir}
+cp -pdR robots.txt index.html *.php db_structure.xml 3rdparty apps core l10n lib ocs ocs-provider resources settings themes $RPM_BUILD_ROOT%{_appdir}
 ln -s %{_sysconfdir}/config $RPM_BUILD_ROOT%{_appdir}/config
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/config/config.php
 
