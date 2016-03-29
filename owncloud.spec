@@ -1,16 +1,6 @@
 #TODO:
-# - make package for libs from 3rdparty dir:
-#  - aws-sdk http://aws.amazon.com/sdkforphp
-#  - dropbox-php http://www.dropbox-php.com/
-#  - jquery-minicolors https://github.com/claviska/jquery-miniColors/
-#  - phpMyID http://siege.org/projects/phpMyID
-#  - php-pear-OS_Guess
-#  - phpass http://www.openwall.com/phpass/
-#  - php-cloudfiles https://github.com/rackspace/php-cloudfiles
-#  - simpletest http://simpletest.org/en/download.html
-#  - smb4php http://www.phpclasses.org/smb4php
-#  - jquery-timepicker http://fgelinas.com/code/timepicker
-#  - sabredav - https://code.google.com/p/sabredav/
+#	use system-wide ca-certificates instead of resources/ca-bundle.crt
+#
 Summary:	Private file sync and share server
 Name:		owncloud
 Version:	8.2.2
@@ -43,11 +33,10 @@ Requires:	php(xmlwriter)
 Requires:	php(zip)
 Requires:	php(zlib)
 #Requires:	php-When
-Requires:	php-pear-Archive_Tar
-Requires:	php-pear-Console_Getopt
-Requires:	php-pear-PEAR-core
-Requires:	php-pear-XML_Parser
-Requires:	php-phpmailer >= 5.2
+# bundled in 3rdparty/pear
+#Requires:	php-pear-Archive_Tar
+#Requires:	php-pear-Console_Getopt
+#Requires:	php-pear-PEAR-core
 #Requires:	php-sabredav-Sabre_CalDAV
 #Requires:	php-sabredav-Sabre_CardDAV
 Requires:	webapps
@@ -114,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING-AGPL 
+%doc AUTHORS COPYING-AGPL .htaccess .mailmap .user.ini indie.json occ
 %dir %attr(750,root,http) %{_sysconfdir}
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
