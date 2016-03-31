@@ -15,7 +15,7 @@ Source3:	lighttpd.conf
 URL:		http://owncloud.org
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	getid3
-Requires:	php(core) >= 5.3.8
+Requires:	php(core) >= 5.4
 Requires:	php(ctype)
 Requires:	php(curl)
 Requires:	php(dom)
@@ -27,7 +27,8 @@ Requires:	php(mbstring)
 Requires:	php(pdo)
 Requires:	php(posix)
 Requires:	php(session)
-Requires:	php(spl)
+Requires:	php(simplexml)
+#Requires:	php(spl)
 Requires:	php(xml)
 Requires:	php(xmlwriter)
 Requires:	php(zip)
@@ -44,7 +45,13 @@ Requires:	webserver(access)
 Requires:	webserver(alias)
 Requires:	webserver(php)
 Requires:	webserver(rewrite)
+Suggests:	php(bz2)
+Suggests:	php(exif)
 Suggests:	php(fileinfo)
+Suggests:	php(imagick)
+Suggests:	php(intl)
+Suggests:	php(mcrypt)
+Suggests:	php(openssl)
 # uses one of of the PDO drivers
 Suggests:	php(pdo-mysql)
 Suggests:	php(mysql)
